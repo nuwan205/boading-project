@@ -1,20 +1,22 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-<div class="container">
+<div class="container container-login" >
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" ">
+        <div class="col-md-5">
+            <div class="card card-logim">
+                <div class="card-body rounded-2" style="background-color:#f1f7fe">
+                <div class="w-100 d-flex justify-content-center my-3">
+                <img class="bi my-3" height="15%" width="15%" src={{ asset('assest/img/hd.png') }}>
+                </div>
+                    
+                    <form method="POST" >
                         @csrf
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
+                        <div class="row mb-3 my-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end my-3">{{ __('Email Address') }}</label>
+                            
+                            <div class="col-md-6 my-3">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -25,7 +27,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-3 my-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -51,7 +53,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
+                        <div class="row mb-3 justify-content-center">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
