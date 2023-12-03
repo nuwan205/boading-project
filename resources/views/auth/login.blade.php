@@ -9,13 +9,13 @@
                 <div class="w-100 d-flex justify-content-center my-3">
                 <img class="bi my-3" height="15%" width="15%" src={{ asset('assest/img/hd.png') }}>
                 </div>
-                    
-                    <form method="POST" >
+
+                    <form method="POST" action="{{route('user_login')}}" >
                         @csrf
 
                         <div class="row mb-3 my-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end my-3">{{ __('Email Address') }}</label>
-                            
+
                             <div class="col-md-6 my-3">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 

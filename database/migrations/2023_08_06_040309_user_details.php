@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('phone_number','20');
             $table->string('whatsapp_number','20');
             $table->string('facebook','200');
-            $table->string('short_desc','200');
             // Foreign key to link user_details table with users table
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

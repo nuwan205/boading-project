@@ -18,16 +18,18 @@
     <link rel="stylesheet"  href="{{ asset('css/owner.css')}}">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.css'>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 <body>
     <div id="app">
         <main class="py-4">
             <div class="ui sidebar vertical left menu overlay visible" style="-webkit-transition-duration: 0.1s; overflow: visible !important;">
                 <div class="item logo">
-                  <img src="https://image.flaticon.com/icons/svg/866/866218.svg" /><img src="https://image.flaticon.com/icons/svg/866/866218.svg" style="display: none" />
+                    <img class="bi" width="24" height="24" src={{ asset('assest/img/logo.png') }}>
+                    {{-- <img class="bi" width="24" height="24" src={{ asset('assest/img/logo.png') }}/><img class="bi" width="24" height="24" src={{ asset('assest/img/logo.png') }} style="display: none" /> --}}
                 </div>
                 <div class="ui accordion">
                   <a class="title item">Dashboard  <i class="dropdown icon"></i>
@@ -36,7 +38,7 @@
                     <a class="item" href="dashboard.html">Dashboard
                                   </a>
                   </div>
-              
+
                   <div class="title item">
                     <i class="dropdown icon"></i> Apps
                   </div>
@@ -95,11 +97,11 @@
                     <a class="item" href="price.html">Price
                                   </a>
                   </div>
-              
+
                   <a class="item">
                     <b>Components</b>
                   </a>
-              
+
                   <div class="title item">
                     <i class="dropdown icon"></i> UI-Kit
                   </div>
@@ -130,7 +132,7 @@
                                   </a>
                     <a class="item" href="alert.html">Alert
                                   </a>
-              
+
                     <a class="item" href="progress.html">Progress
                                   </a>
                     <a class="item" href="range-v1.html">Range Semantic
@@ -146,17 +148,17 @@
                     <a class="item" href="transition.html">Transition
                                   </a>
                   </div>
-              
+
                   <div class="title item">
                     <i class="dropdown icon"></i> Pages
                   </div>
                   <div class="content">
                     <a class="item" href="profile.html">Profile
                                   </a>
-              
+
                     <a class="item" href="settings.html">Settings
                                   </a>
-              
+
                     <a class="item" href="blank.html">Blank
                                   </a>
                     <a class="item" href="signin.html">Sign In
@@ -172,7 +174,7 @@
                     <a class="item" href="comingsoon.html">Coming Soon
                                   </a>
                   </div>
-              
+
                   <div class="title item">
                     <i class="dropdown icon"></i> Form
                   </div>
@@ -183,11 +185,11 @@
                                   </a>
                     <a class="item" href="formvalidation.html">Form Validation
                                   </a>
-              
+
                     <a class="item" href="editor.html">Html Editor
                                   </a>
                   </div>
-              
+
                   <div class="title item">
                     <i class="dropdown icon"></i> Tables
                   </div>
@@ -214,7 +216,7 @@
                 <div class="ui dropdown item displaynone">
                   <z>Dashboard</z>
                   <i class="icon demo-icon heart icon-heart"></i>
-              
+
                   <div class="menu">
                     <div class="header">
                       Dashboard
@@ -227,7 +229,7 @@
                 <div class="ui dropdown item displaynone">
                   <z>Layout</z>
                   <i class="icon demo-icon world icon-globe"></i>
-              
+
                   <div class="menu">
                     <div class="header">
                       Layout
@@ -254,7 +256,7 @@
                 <div class="ui dropdown item displaynone">
                   <z>Pages</z>
                   <i class="icon demo-icon  icon-params alarm"></i>
-              
+
                   <div class="menu">
                     <div class="header">
                       Layouts
@@ -312,7 +314,7 @@
                                   <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                               </li>
                           @endif
-            
+
                           @if (Route::has('register'))
                               <li class="nav-item">
                                   <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -323,14 +325,14 @@
                               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                   {{ Auth::user()->name }}
                               </a>
-            
+
                               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                      onclick="event.preventDefault();
                                                    document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                   </a>
-            
+
                                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                       @csrf
                                   </form>
@@ -341,19 +343,54 @@
                   </div>
                 </div>
                 <div class="asd " style="border-radius: 0!important; border: 0; margin-left: 260px;margin-right: 10px; -webkit-transition-duration: 0.1s;">
-                    
+
                   @yield('content')
                 </div>
-                
+
               </div>
             {{-- <div class="asd w-100" style="border-radius: 0!important; border: 0; margin-left: 260px;margin-right: 260px; -webkit-transition-duration: 0.1s;">
-                
+
             </div> --}}
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.js'></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script src="https://rawgit.com/Logicify/jquery-locationpicker-plugin/master/dist/locationpicker.jquery.js"></script>
     <script  src="{{ asset('js/owner.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+              $('.js-example-basic-single').select2();
+              $(".select2-selection__rendered").attr('style', 'line-height: 31px !important');
+              $(".select2-container").attr('style', 'height: calc(1em + 1.75rem + 2px) !important;width:100%;');
+              $(".select2-selection--single").attr('style', 'height: calc(1em + 1.75rem + 2px) !important;padding:0.375rem 1.125rem');
+              $(".select2-selection__arrow").attr('style', 'height: 34px !important;padding:0.975rem 2.125rem')
+        });
+
+        function locationPick() {
+            $('#us3').locationpicker({
+                location: {
+                    latitude: 6.8220629,
+                    longitude: 80.0398979
+                },
+                radius: 0,
+                inputBinding: {
+                    latitudeInput: $('#us3-lat'),
+                    longitudeInput: $('#us3-lon'),
+                    radiusInput: $('#us3-radius'),
+                    locationNameInput: $('#us3-address')
+                },
+                enableAutocomplete: true,
+                onchanged: function (currentLocation, radius, isMarkerDropped) {
+                    // Uncomment line below to show alert on each Location Changed event
+                    //alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
+                }
+
+            });
+
+        } locationPick();
+
+      </script>
 </body>
 </html>

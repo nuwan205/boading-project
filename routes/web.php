@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Lumen\Routing\Router;
+use App\Http\Controllers\authController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,35 +24,25 @@ Route::get('/single', function () {
     return view('client/singleBoad');
 });
 
+Route::get('/dashboard', function () {
+    return view('owner/boadAdd');
+})->middleware('auth.check')->name('dashboard');
+
 Route::get('/catalogue', function () {
     return view('client/catalogue');
 });
 
 Route::get('/login', function () {
     return view('/auth/login');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('/auth/register');
 });
 
-// Auth::routes();
+//Api calls
+Route::post('/api/login', [authController::class,'login'])->name('user_login');
+Route::post('/api/register', [authController::class,'register'])->name('user_register');
+Route::post('/api/logout', [authController::class,'logout'])->name('logout');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('/boad-add', [App\Http\Controllers\BoadAddController::class, 'index'])->name('boadAdd');
 
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
