@@ -20,7 +20,17 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uppy/3.14.1/uppy.css" integrity="sha512-bWtvEIUUTEPtIU/xZtiRSQ/4qrSJ0xZ5R1aiwIe8LZVsliaCJg/lJon5+NoXqsgQbyWU87qLSVjmPP/BNV17eg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='stylesheet' href='https://unpkg.com/izitoast/dist/css/iziToast.min.css'>
+    <link href="https:////cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Scripts -->
+    <style>
+        .active{
+            background-color: #5bccf0;
+        }
+    </style>
 
 </head>
 <body>
@@ -32,184 +42,12 @@
                     {{-- <img class="bi" width="24" height="24" src={{ asset('assest/img/logo.png') }}/><img class="bi" width="24" height="24" src={{ asset('assest/img/logo.png') }} style="display: none" /> --}}
                 </div>
                 <div class="ui accordion">
-                  <a class="title item">Dashboard  <i class="dropdown icon"></i>
-                              </a>
-                  <div class="content">
-                    <a class="item" href="dashboard.html">Dashboard
+                  <div class="content {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                    <a class="item" href="dashboard ">Add Boading
                                   </a>
                   </div>
-
-                  <div class="title item">
-                    <i class="dropdown icon"></i> Apps
-                  </div>
-                  <div class="content">
-                    <a class="item" href="inbox.html">Inbox
-                                  </a>
-                    <a class="item" href="mail.html">Mailbox
-                                  </a>
-                    <a class="item" href="chat.html">Chat
-                                  </a>
-                    <a class="item" href="contacts.html">Contacts
-                                  </a>
-                    <a class="item" href="photoeditor.html">Photo Editor
-                                  </a>
-                    <a class="item" href="calendar.html">Calendar
-                                  </a>
-                    <a class="item" href="filter.html">Filter
-                                  </a>
-                    <a class="item" href="todo.html">Todo
-                                  </a>
-                  </div>
-                  <div class="title item">
-                    <i class="dropdown icon"></i> Layouts
-                  </div>
-                  <div class="content">
-                    <a class="item" href="sidebar.html">Sidebar
-                                  </a>
-                    <a class="item" href="menu.html">Nav
-                                  </a>
-                    <a class="item" href="animatedicon.html">Animated Icon
-                                  </a>
-                    <a class="item" href="box.html">Box
-                                  </a>
-                    <a class="item" href="cards.html">Cards
-                                  </a>
-                    <a class="item" href="color.html">Colors
-                                  </a>
-                    <a class="item" href="comment.html">Comment
-                                  </a>
-                    <a class="item" href="embed.html">Embed
-                                  </a>
-                    <a class="item" href="faq.html">Faq
-                                  </a>
-                    <a class="item" href="feed.html">Feed
-                                  </a>
-                    <a class="item" href="gallery.html">Gallery
-                                  </a>
-                    <a class="item" href="grid.html">Grid
-                                  </a>
-                    <a class="item" href="header.html">Header
-                                  </a>
-                    <a class="item" href="timeline.html">Timeline
-                                  </a>
-                    <a class="item" href="message.html">Message
-                                  </a>
-                    <a class="item" href="price.html">Price
-                                  </a>
-                  </div>
-
-                  <a class="item">
-                    <b>Components</b>
-                  </a>
-
-                  <div class="title item">
-                    <i class="dropdown icon"></i> UI-Kit
-                  </div>
-                  <div class="content">
-                    <a class="item" href="accordion.html">Accordion
-                                  </a>
-                    <a class="item" href="breadcrumb.html">Breadcrumb
-                                  </a>
-                    <a class="item" href="button.html">Button
-                                  </a>
-                    <a class="item" href="divider.html">Divider
-                                  </a>
-                    <a class="item" href="dropdown.html">Dropdown
-                                  </a>
-                    <a class="item" href="flag.html">Flag
-                                  </a>
-                    <a class="item" href="icon.html">Icon
-                                  </a>
-                    <a class="item" href="image.html">Image
-                                  </a>
-                    <a class="item" href="label.html">Label
-                                  </a>
-                    <a class="item" href="list.html">List
-                                  </a>
-                    <a class="item" href="modal.html">Modal
-                                  </a>
-                    <a class="item" href="notification.html">Notification
-                                  </a>
-                    <a class="item" href="alert.html">Alert
-                                  </a>
-
-                    <a class="item" href="progress.html">Progress
-                                  </a>
-                    <a class="item" href="range-v1.html">Range Semantic
-                                  </a>
-                    <a class="item" href="range-v2.html">Range Material
-                                  </a>
-                    <a class="item" href="rating.html">Rating
-                                  </a>
-                    <a class="item" href="tab.html">Tab
-                                  </a>
-                    <a class="item" href="tooltip.html">Tooltip
-                                  </a>
-                    <a class="item" href="transition.html">Transition
-                                  </a>
-                  </div>
-
-                  <div class="title item">
-                    <i class="dropdown icon"></i> Pages
-                  </div>
-                  <div class="content">
-                    <a class="item" href="profile.html">Profile
-                                  </a>
-
-                    <a class="item" href="settings.html">Settings
-                                  </a>
-
-                    <a class="item" href="blank.html">Blank
-                                  </a>
-                    <a class="item" href="signin.html">Sign In
-                                  </a>
-                    <a class="item" href="signup.html">Sign Up
-                                  </a>
-                    <a class="item" href="forgotpassword.html">Forgot Password
-                                  </a>
-                    <a class="item" href="lockme.html">Lock Me Screen
-                                  </a>
-                    <a class="item" href="404.html">Error 404
-                                  </a>
-                    <a class="item" href="comingsoon.html">Coming Soon
-                                  </a>
-                  </div>
-
-                  <div class="title item">
-                    <i class="dropdown icon"></i> Form
-                  </div>
-                  <div class="content">
-                    <a class="item" href="formelements.html">Form Element
-                                  </a>
-                    <a class="item" href="input.html">Input
-                                  </a>
-                    <a class="item" href="formvalidation.html">Form Validation
-                                  </a>
-
-                    <a class="item" href="editor.html">Html Editor
-                                  </a>
-                  </div>
-
-                  <div class="title item">
-                    <i class="dropdown icon"></i> Tables
-                  </div>
-                  <div class="content">
-                    <a class="item" href="table.html">Static Table
-                                  </a>
-                    <a class="item" href="datatable.html">Datatable
-                                  </a>
-                    <a class="item" href="editable.html">Editable
-                                  </a>
-                  </div>
-                  <div class="title item">
-                    <i class="dropdown icon"></i> Chart
-                  </div>
-                  <div class="content">
-                    <a class="item" href="chart.html">Charts 1
-                                  </a>
-                    <a class="item" href="chart-2.html">Charts 2
-                                  </a>
-                    <a class="item" href="chart-3.html">Charts 3
+                  <div class="content {{ request()->routeIs('manageBoading') ? 'active' : '' }}">
+                    <a class="item" href="manageBoading">Manage Boading
                                   </a>
                   </div>
                 </div>
@@ -219,81 +57,11 @@
 
                   <div class="menu">
                     <div class="header">
-                      Dashboard
+                      Main
                     </div>
                     <div class="ui divider"></div>
-                    <a class="item" href="dashboard.html">Dashboard
-                                  </a>
-                  </div>
-                </div>
-                <div class="ui dropdown item displaynone">
-                  <z>Layout</z>
-                  <i class="icon demo-icon world icon-globe"></i>
-
-                  <div class="menu">
-                    <div class="header">
-                      Layout
-                    </div>
-                    <div class="ui divider"></div>
-                    <a class="item" href="inbox.html">Inbox
-                                  </a>
-                    <a class="item" href="mail.html">Mailbox
-                                  </a>
-                    <a class="item" href="chat.html">Chat
-                                  </a>
-                    <a class="item" href="contacts.html">Contacts
-                                  </a>
-                    <a class="item" href="photoeditor.html">Photo Editor
-                                  </a>
-                    <a class="item" href="calendar.html">Calendar
-                                  </a>
-                    <a class="item" href="filter.html">Filter
-                                  </a>
-                    <a class="item" href="todo.html">Todo
-                                  </a>
-                  </div>
-                </div>
-                <div class="ui dropdown item displaynone">
-                  <z>Pages</z>
-                  <i class="icon demo-icon  icon-params alarm"></i>
-
-                  <div class="menu">
-                    <div class="header">
-                      Layouts
-                    </div>
-                    <div class="ui divider"></div>
-                    <a class="item" href="sidebar.html">Sidebar
-                                  </a>
-                    <a class="item" href="menu.html">Nav
-                                  </a>
-                    <a class="item" href="animatedicon.html">Animated Icon
-                                  </a>
-                    <a class="item" href="box.html">Box
-                                  </a>
-                    <a class="item" href="cards.html">Cards
-                                  </a>
-                    <a class="item" href="color.html">Colors
-                                  </a>
-                    <a class="item" href="comment.html">Comment
-                                  </a>
-                    <a class="item" href="embed.html">Embed
-                                  </a>
-                    <a class="item" href="faq.html">Faq
-                                  </a>
-                    <a class="item" href="feed.html">Feed
-                                  </a>
-                    <a class="item" href="gallery.html">Gallery
-                                  </a>
-                    <a class="item" href="grid.html">Grid
-                                  </a>
-                    <a class="item" href="header.html">Header
-                                  </a>
-                    <a class="item" href="timeline.html">Timeline
-                                  </a>
-                    <a class="item" href="message.html">Message
-                                  </a>
-                    <a class="item" href="price.html">Price
-                                  </a>
+                    <a class="item" href="dashboard">Add Boading</a>
+                    <a class="item" href="dashboard">Manage Boading</a>
                   </div>
                 </div>
               </div>
@@ -353,12 +121,16 @@
             </div> --}}
         </main>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uppy/3.14.1/uppy.min.js" integrity="sha512-AeHJEmHa2QgUfr0rcPmvfPhtJc/B0jjrhQ0X3sHuhfIWYt4/rdjnVmXt9D6IOa+lcdamC2sargeT5XjXCCxX+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/admin/js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.js'></script>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyAIDlJ-s0V2EWKGY9Sk3Spj92IaagO-Kgs"></script>
     <script src="https://rawgit.com/Logicify/jquery-locationpicker-plugin/master/dist/locationpicker.jquery.js"></script>
     <script  src="{{ asset('js/owner.js')}}"></script>
+    <script src="https:////cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src='https://unpkg.com/izitoast/dist/js/iziToast.min.js'></script>
     <script>
         $(document).ready(function() {
               $('.js-example-basic-single').select2();
@@ -392,5 +164,71 @@
         } locationPick();
 
       </script>
+      <script>
+        const uppy =new Uppy.Uppy({ autoProceed: false , restrictions: {
+                    maxFileSize: 2 * 1024 * 1024, // Set the maximum number of files allowed,
+                    allowedFileTypes: ['image/*']
+                    }})
+                uppy.use(Uppy.Dashboard, { target: '#drag-drop-area', inline: true, height: 450, width:'100%',hideUploadButton:true })
+    </script>
+    <script>
+
+        function addBoading(){
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+            const files = uppy.getFiles();
+            let formData = new FormData();
+            var checkedFeatures = $('input[name="features"]:checked');
+            var checkedFeatures = $('input[name="features"]:checked');
+
+            checkedFeatures.each(function(index, feature) {
+                formData.append('features[]', $(this).val());
+            });
+
+            formData.append('title', $('#title').val())
+            files.forEach((file, index) => {
+                formData.append('images[]', file.data);
+            });
+            formData.append('city', $('#city').val())
+            formData.append('slots', $('#slots').val())
+            formData.append('category', $('#category').val())
+            formData.append('type', $('#type').val())
+            formData.append('distance', $('#distance').val())
+            formData.append('address', $('#address').val())
+            formData.append('latitude', $('#us3-lat').val())
+            formData.append('longitude', $('#us3-lon').val())
+            formData.append('price', $('#price').val())
+            formData.append('area', $('#area').val())
+            formData.append('bathroom', $('input[name="bathroom"]:checked').val())
+            formData.append('rooms', $('input[name="rooms"]:checked').val())
+            formData.append('description', $('#description').val())
+            $.ajax({
+                url: '/api/boading/add',  // Replace with your API endpoint
+                method: 'POST',             // Adjust the HTTP method as needed
+                data: formData,
+                processData: false,
+                contentType: false,
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                success: function(data) {
+                    if (data.status == "true" || data.status == true) {
+                        iziToast.success({ title: 'success', message: data.message });
+                        $('#boadingaddForm').trigger('reset');
+                        uppy.getFiles().forEach(file => uppy.removeFile(file.id));
+                    } else {
+                        iziToast.error({ title: 'Error', message: data.error });
+
+                    };
+                },
+                error: function(xhr, status, error) {
+                    iziToast.error({ title: 'Error', message: error });
+                }
+            });
+        }
+
+    </script>
+<script>
+
+</script>
 </body>
 </html>

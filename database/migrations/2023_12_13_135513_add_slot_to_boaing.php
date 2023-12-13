@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attributes', function (Blueprint $table) {
-            $table->id();
-            $table->string('name','200');
-            $table->string('icon_class','100');
-            $table->timestamps();
+        Schema::table('boadings', function (Blueprint $table) {
+            $table->integer('slots');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attributes');
+        Schema::table('boaing', function (Blueprint $table) {
+            //
+        });
     }
 };

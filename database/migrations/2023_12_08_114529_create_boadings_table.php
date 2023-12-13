@@ -11,21 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('boadings', function (Blueprint $table) {
             $table->id();
             $table->string('name','200');
-            $table->boolean('type');
-            $table->integer('vacancies');
-            $table->integer('distance');
+            $table->enum('category',['1','2','3']);
+            $table->enum('type',['1','2','3','4','5','6','7','8']);
+            $table->enum('distance',['1','2','3','4','5','6']);
+            $table->string('city','200');
+            $table->string('address','300');
             $table->double('latitude');
             $table->double('longitude');
             $table->double('price');
             $table->string('description','2000');
             $table->double('area');
-            $table->integer('built');
-            $table->integer('bathroom');
+            $table->enum('bathroom',['1','2','3','4','5']);
+            $table->enum('rooms',['1','2','3','4','5']);
             $table->unsignedBigInteger('added_by');
             $table->foreign('added_by')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -35,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('boadings');
     }
 };

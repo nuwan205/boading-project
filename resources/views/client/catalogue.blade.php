@@ -33,54 +33,54 @@
                             </div>
                             <div id="scrollable-content" style="min-height: 200px; overflow-y: auto;" class="d-flex flex-column w-100">
                                 <div class="pretty p-default p-curve p-fill pt-3">
-                                    <input type="checkbox" />
+                                    <input  name="helloworld" id="123" type="checkbox" />
+                                    <div class="state ps-3">
+                                      <label for="123">Apartment</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default p-curve p-fill pt-3">
+                                    <input name="helloworld" type="checkbox" />
                                     <div class="state ps-3">
                                       <label>House</label>
                                     </div>
                                 </div>
                                 <div class="pretty p-default p-curve p-fill pt-3">
-                                    <input type="checkbox" />
+                                    <input name="helloworld" type="checkbox" />
                                     <div class="state ps-3">
-                                      <label>Apartment</label>
+                                      <label>Hostel</label>
                                     </div>
                                 </div>
                                 <div class="pretty p-default p-curve p-fill pt-3">
-                                    <input type="checkbox" />
+                                    <input name="helloworld" type="checkbox" />
                                     <div class="state ps-3">
-                                      <label>Room</label>
+                                      <label>New Building</label>
                                     </div>
                                 </div>
                                 <div class="pretty p-default p-curve p-fill pt-3">
-                                    <input type="checkbox" />
-                                    <div class="state ps-3">
-                                      <label>Daily rental</label>
-                                    </div>
-                                </div>
-                                <div class="pretty p-default p-curve p-fill pt-3">
-                                    <input type="checkbox" />
+                                    <input name="helloworld" type="checkbox" />
                                     <div class="state ps-3">
                                       <label>Anex</label>
                                     </div>
                                 </div>
                                 <div class="pretty p-default p-curve p-fill pt-3">
-                                    <input type="checkbox" />
+                                    <input name="helloworld" type="checkbox" />
                                     <div class="state ps-3">
                                       <label>Fill</label>
                                     </div>
                                 </div>
                                 <div class="pretty p-default p-curve p-fill pt-3">
-                                    <input type="checkbox" />
+                                    <input name="helloworld" type="checkbox" />
                                     <div class="state ps-3">
                                       <label>Fill</label>
                                     </div>
                                 </div>
                                 <div class="pretty p-default p-curve p-fill pt-3">
-                                    <input type="checkbox" />
+                                    <input name="sd" type="checkbox" />
                                     <div class="state ps-3">
                                       <label>Fill</label>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="border-top border-3 mt-4 w-100">
@@ -91,6 +91,31 @@
                             </div>
                             <input type="text" class="js-range-slider" name="my_range" value="" />
                         </div>
+                        <div class="border-top border-3 mt-4 w-100">
+                        </div>
+                        <div class="w-100 pb-5">
+                            <div class="distance align-self-start mt-4 d-flex flex-column w-100 pb-4">
+                                <h3 class="fs-6 fw-bold filter-text text-start">Find Nearest Boading</h3>
+                            </div>
+                            <div class="row">
+                                <!-- First LG-sized input field -->
+                                <div class="col-sm-6 mb-3">
+                                    <input type="text" class="form-control form-control-lg" id="lattiude" placeholder="lat: " required>
+                                </div>
+
+                                <!-- Second LG-sized input field -->
+                                <div class="col-sm-6 mb-3">
+                                    <input type="text" class="form-control form-control-lg" id="longitude" placeholder="long: " required>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center margin-bottom-40">
+                                <button id=getLocation href="javascript:void(0)"  class="btn btn-mod btn-border btn-circle btn-medium ">
+                                  <i class="fa fa-location"></i>
+                                  Get My Location
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -200,4 +225,40 @@
         </div>
     </div>
   </main>
+  <script>
+    document.getElementById('getLocation').addEventListener('click', function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+        } else {
+            alert('Geolocation is not supported by your browser.');
+        }
+    });
+
+    function successCallback(position) {
+        // Get latitude and longitude
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        document.getElementById("lattiude").value = latitude
+        document.getElementById("longitude").value = longitude
+
+    }
+
+    function errorCallback(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                alert('User denied the request for Geolocation.');
+                break;
+            case error.POSITION_UNAVAILABLE:
+                alert('Location information is unavailable.');
+                break;
+            case error.TIMEOUT:
+                alert('The request to get user location timed out.');
+                break;
+            case error.UNKNOWN_ERROR:
+                alert('An unknown error occurred.');
+                break;
+        }
+    }
+</script>
 @endsection
