@@ -55,7 +55,9 @@
                                         <option value="2">House</option>
                                         <option value="3">Hostel</option>
                                         <option value="4">New Building</option>
-                                        <option value="5">Other</option>
+                                        <option value="5">Room</option>
+                                        <option value="6">Anex</option>
+                                        <option value="7">Other</option>
                                         </select>
                                     </div>
                                 </div>

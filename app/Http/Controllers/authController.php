@@ -37,7 +37,7 @@ class authController extends Controller
 
             $data = $request->validate([
                 'name'=>'required|string|min:1|max:100',
-                'email'=>'required|email|min:1|max:360',
+                'email'=>'required|email|min:1|max:360|unique:users,email',
                 'address'=>'required|string|min:1|max:360',
                 'phone_number'=>'required|string|min:1|max:20',
                 'whatsapp_number'=>'required|string|min:1|max:20',
@@ -72,6 +72,7 @@ class authController extends Controller
 
             return redirect()->intended(route('dashboard'));
         }catch (\Exception $e){
+            return redirect()->route('register')->withErrors($e->errors())->withInput();
             error_log($e);
         }
 

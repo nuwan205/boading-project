@@ -17,6 +17,8 @@ use App\Http\Controllers\BoadingController;
 |
 */
 
+//pages routing
+
 Route::get('/', function () {
     return view('client/index');
 });
@@ -38,7 +40,8 @@ Route::get('/manageBoading', function () {
 })->middleware('auth.check')->name('manageBoading');
 
 Route::get('/catalogue', function () {
-    return view('client/catalogue');
+    $features = DB::table('features')->get();
+    return view('client/catalogue', ['features' => $features]);
 });
 
 Route::get('/login', function () {
@@ -47,7 +50,7 @@ Route::get('/login', function () {
 
 Route::get('/register', function () {
     return view('/auth/register');
-});
+})->name('register');
 
 //Api calls
 Route::post('/api/login', [authController::class,'login'])->name('user_login');
@@ -57,5 +60,10 @@ Route::post('/api/logout', [authController::class,'logout'])->name('logout');
 Route::middleware(['web', 'auth.check'])->post('/api/boading/add', [BoadingController::class, 'add'])->name('boading_add');
 Route::middleware([ 'auth.check'])->get('/api/boading/list', [BoadingController::class, 'list'])->name('boading_list');
 
+//catalogue data get
+Route::post('/api/catalogue', [BoadingController::class,'catalogue'])->name('caalogue_api');
+
+//single data
+Route::get('/boading/{boadingId}', [BoadingController::class,'singleView'])->name('projects.show');
 
 

@@ -26,36 +26,44 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
       <!-- Custom styles for this template -->
       <link href="product.css" rel="stylesheet">
+      <link rel='stylesheet' href='https://unpkg.com/izitoast/dist/css/iziToast.min.css'>
+    <link href="https:////cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
     <body>
 
         @include('components.header')
         @yield('content')
         @include('components.footer')
-      
+
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap" async defer></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
       <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+      <script src="https:////cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+      <script src='https://unpkg.com/izitoast/dist/js/iziToast.min.js'></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
       <script>
         // Initialize the map
         var map = L.map('map').setView([6.8217445,80.0425658], 18);
-      
+
         // Add a tile layer to the map (you can use any tile provider)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
         var marker = L.marker([6.8217445,80.0425658]).addTo(map);
-      
+
         // Add markers or other map elements as needed
       </script>
+
       <script>
         $(document).ready(function(){
             $('.owl-carousel').owlCarousel({
@@ -83,11 +91,18 @@
         type: "double",
         skin: "round",
         prefix: "Rs." ,
-        min: 2000,
+        min: 0,
         max: 30000,
         from: 2000,
         to: 10000,
-        grid: true
+        grid: true,
+        onFinish: function (data) {
+            // Callback when the slider is finished
+            var minValue = data.from;
+            var maxValue = data.to;
+
+            fetchData(minValue, maxValue);
+        }
     });
     </script>
     </body>
