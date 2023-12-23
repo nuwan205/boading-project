@@ -7,7 +7,7 @@
       <meta name="description" content="">
       <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
       <meta name="generator" content="Hugo 0.115.4">
-      <title>Product example · Bootstrap v5.3</title>
+      <title>Japura Boadima</title>
       <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/product/">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
       <link rel="stylesheet" href="{{ asset('css/product.css') }}">

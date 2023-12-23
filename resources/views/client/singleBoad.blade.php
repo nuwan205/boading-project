@@ -31,7 +31,7 @@
             <span class="fw-normal icon-padding fs-6 ">{{$project->slots}}</span><i class="fa-solid fa-users fs-6 text-secondary"></i>
           </div>
           <div class="user-ic">
-            <span class="fw-normal icon-padding fs-6">{{ $distance_Arr[$project->category] }}</span> <span class="fs-6 text-secondary fw-bold">KM</span>
+            <span class="fw-normal icon-padding fs-6">{{ $distance_Arr[$project->distance] }}</span> <span class="fs-6 text-secondary fw-bold">KM</span>
           </div>
         </div>
       </div>
@@ -49,15 +49,6 @@
                 </div>
               </div>
               <div class="col-4">
-                @if ($project->images && $project->images->isNotEmpty())
-                    <a class="gallery-item rounded rounded-md-3 mb-2 mb-md-3" href="javascript:void(0);">
-                        @php
-                            $lastImage = $project->images->last();
-                        @endphp
-                        <img src="{{ asset('storage/images/' . $lastImage->image_name) }}" class="img-fluid" alt="Gallery thumbnail">
-                    </a>
-                @endif
-
                 @if ($project->images && $project->images->isNotEmpty())
                     <a class="gallery-item rounded rounded-md-3 mb-2 mb-md-3" href="javascript:void(0);">
                         @php

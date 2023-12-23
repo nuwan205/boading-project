@@ -128,10 +128,16 @@
                                     <input type="text" class="form-control form-control-lg" id="longitude" value="" placeholder="long: " required>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-center margin-bottom-40">
+                            <div class="d-flex justify-content-center mb-2">
                                 <button id=getLocation href="javascript:void(0)"  class="btn btn-mod btn-border btn-circle btn-medium ">
                                   <i class="fa fa-location"></i>
                                   Get My Location
+                                </button>
+                            </div>
+                            <div class="d-flex justify-content-center margin-bottom-40">
+                                <button id=reset_location href="javascript:void(0)"  class="btn btn-danger btn-border btn-circle btn-danger ">
+                                  Reset
+                                  <i class="fa fa-location"></i>
                                 </button>
                             </div>
                         </div>
@@ -263,6 +269,12 @@
         } else {
             alert('Geolocation is not supported by your browser.');
         }
+    });
+
+    document.getElementById('reset_location').addEventListener('click', function() {
+        document.getElementById("lattiude").value = ""
+        document.getElementById("longitude").value = ""
+        fetchData()
     });
 
     function scrollTop() {

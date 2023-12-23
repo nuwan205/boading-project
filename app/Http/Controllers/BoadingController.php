@@ -37,6 +37,8 @@ class BoadingController extends Controller
                 'rooms' => 'required|in:1,2,3,4,5',
             ]);
 
+            $request->input('description',"");
+
             $registred =  boadings::create([
                 'name' => $request->get('title'),
                 'category' => $request->get('category'),
@@ -48,7 +50,7 @@ class BoadingController extends Controller
                 'latitude' => $request->get('latitude'),
                 'longitude' => $request->get('longitude'),
                 'price' => $request->get('price'),
-                'description' =>"Dsdsdsds",
+                'description' =>$request->get('description'),
                 'area' => $request->get('area'),
                 'bathroom' => $request->get('bathroom'),
                 'rooms' => $request->get('rooms'),
@@ -89,10 +91,9 @@ class BoadingController extends Controller
     function list(Request $request) : JsonResponse
     {
         try{
-
             return response()->json([
                 'status' => true,
-                'data' => boadings::get(),
+                'data' => boadings::where('added_by', '=', Auth::id())->get(),
             ]);
 
         }catch (\Exception $e){
@@ -151,7 +152,7 @@ class BoadingController extends Controller
             if( count($features) > 0){
 
                 $query->whereHas('features', function ($query) use ($features) {
-                    $query->whereIn('type', $features);
+                    $query->whereIn('feature_id', $features);
                 });
 
             }
