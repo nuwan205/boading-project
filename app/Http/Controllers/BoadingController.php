@@ -160,6 +160,7 @@ class BoadingController extends Controller
 
             $data = $query->with('features')
             ->with('images')
+            ->with('images')
             ->get();
 
             error_log($data);
@@ -180,7 +181,7 @@ class BoadingController extends Controller
     function singleView($projectId)
     {
         $project = boadings::with('features.feature_items')
-        ->with('images')->find($projectId);
+        ->with('images')->with('user')->with('user_details')->find($projectId);
 
         $distance_Arr = [
             '1' => 'Under 1',

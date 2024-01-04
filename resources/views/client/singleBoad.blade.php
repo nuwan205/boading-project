@@ -108,6 +108,46 @@
 
 
           </div>
+          <div class="col-md-5 mb-md-0 mb-4">
+            <div class="card owner-contact">
+                <div class="avatar-owner w-100">
+                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" style="width: 150px;" alt="Avatar" />
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{ $project-> user-> name }}</h5>
+                  <ul class="list-group list-group-light">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-phone rounded-circle"></i>
+                        <div class="ms-3">
+                          <p class="fw-bold mb-1">{{ $project-> user_details-> phone_number }}</p>
+                        </div>
+                      </div>
+                      <span class="badge rounded-pill badge-success">Active</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-brands fa-whatsapp"></i>
+                          <div class="ms-3">
+                            <p class="fw-bold mb-1">{{ $project-> user_details-> whatsapp_number }}</p>
+                          </div>
+                        </div>
+                        <span class="badge rounded-pill badge-success">Active</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-house"></i>
+                          <div class="ms-3">
+                            <p class="fw-bold mb-1">{{ $project-> user_details-> address }}</p>
+                          </div>
+                        </div>
+                        <span class="badge rounded-pill badge-success">Active</span>
+                      </li>
+                  </ul>
+                  <a href="tel:{{ $project-> user_details-> phone_number }}" class="btn btn-success my-3" data-mdb-ripple-init> <i class="fa-solid fa-phone rounded-circle mx-2"></i>Call</a>
+                </div>
+              </div>
+          </div>
           <h3 class="h4 head-title">Location</h3>
             <div class="w-100 pt-5" id="maps" style="height: 400px;"></div>
 
